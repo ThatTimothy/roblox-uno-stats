@@ -12,6 +12,7 @@ on:
   workflow_dispatch:
 concurrency: 
   group: update-data
+  cancel-in-progress: true
 jobs:
   update:
     runs-on: ubuntu-latest
