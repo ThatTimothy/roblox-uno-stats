@@ -7,10 +7,12 @@ on:
   # Triggers every 5 minutes
   schedule:
     - cron: "* * * * *"
-    
+   
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+concurrency: 
+  group: update-data-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   update:
     runs-on: ubuntu-latest
