@@ -18,8 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Wait a bit
-        run: sleep 10
       - name: Checkout current repository
         uses: actions/checkout@v2
 
