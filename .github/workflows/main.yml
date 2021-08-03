@@ -1,14 +1,9 @@
 name: Update Data
 
 on:
-  # Triggers the workflow on push events
   push:
-  
-  # Triggers as often as possible (in case action fails)
   schedule:
     - cron: "* * * * *"
-   
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 concurrency: 
   group: update-data
@@ -41,6 +36,7 @@ jobs:
           git push
           
       - name: Start next action
+        if: always() #Prevent an error from stopping next action
         run: |
           curl \
            -X POST \
