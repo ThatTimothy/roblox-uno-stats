@@ -25,18 +25,18 @@ jobs:
         with:
           options: "options.json"
       
-      - name: Push changes to GitHub
+      - name: Commit changes
         run: |
           git config user.name Data_Updater
           git config user.email github-actions@github.com
           git add .
-          git commit -m "Update Data"
+          git commit -m "`date -u +'%H:%M:%S %Y-%m-%d'`"
       
-      - name: Push changes to GitHub 2
+      - name: Pull new changes (if we can)
         run: |
           git pull
       
-      - name: Push changes to GitHub 3
+      - name: Push changes
         run: |
           git push
           
